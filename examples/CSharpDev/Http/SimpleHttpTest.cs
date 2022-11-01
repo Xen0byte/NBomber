@@ -1,6 +1,5 @@
 using System;
 using System.Net.Http;
-using NBomber.Contracts;
 using NBomber.CSharp;
 
 namespace CSharpDev.Http;

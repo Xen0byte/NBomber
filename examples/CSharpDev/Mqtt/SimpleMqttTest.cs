@@ -4,7 +4,6 @@ using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.Client.Connecting;
 using MQTTnet.Client.Options;
-using NBomber.Contracts;
 using NBomber.CSharp;
 
 namespace CSharpDev.Mqtt;

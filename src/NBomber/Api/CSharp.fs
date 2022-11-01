@@ -11,6 +11,100 @@ open NBomber
 open NBomber.Contracts
 open NBomber.Contracts.Stats
 
+type Response =
+
+    static member Ok(
+        [<Optional;DefaultParameterValue("")>] statusCode: string,
+        [<Optional;DefaultParameterValue(0)>] sizeBytes: int,
+        [<Optional;DefaultParameterValue("")>] message: string,
+        [<Optional;DefaultParameterValue(0.0)>] latencyMs: float) : Response<obj> =
+
+        { StatusCode = statusCode
+          IsError = false
+          SizeBytes = sizeBytes
+          Message = if isNull message then String.Empty else message
+          LatencyMs = latencyMs
+          Payload = None }
+
+    static member Ok<'T>(
+        payload: 'T,
+        [<Optional;DefaultParameterValue("")>] statusCode: string,
+        [<Optional;DefaultParameterValue(0)>] sizeBytes: int,
+        [<Optional;DefaultParameterValue("")>] message: string,
+        [<Optional;DefaultParameterValue(0.0)>] latencyMs: float) : Response<'T> =
+
+        { StatusCode = statusCode
+          IsError = false
+          SizeBytes = sizeBytes
+          Message = if isNull message then String.Empty else message
+          LatencyMs = latencyMs
+          Payload = Some payload }
+
+    static member Ok<'T>(
+        [<Optional;DefaultParameterValue("")>] statusCode: string,
+        [<Optional;DefaultParameterValue(0)>] sizeBytes: int,
+        [<Optional;DefaultParameterValue("")>] message: string,
+        [<Optional;DefaultParameterValue(0.0)>] latencyMs: float) : Response<'T> =
+
+        { StatusCode = statusCode
+          IsError = false
+          SizeBytes = sizeBytes
+          Message = if isNull message then String.Empty else message
+          LatencyMs = latencyMs
+          Payload = None }
+
+    static member Fail(
+        statusCode: string,
+        error: Exception,
+        [<Optional;DefaultParameterValue(0)>] sizeBytes: int,
+        [<Optional;DefaultParameterValue(0.0)>] latencyMs: float) : Response<obj> =
+
+        { StatusCode = statusCode
+          IsError = true
+          SizeBytes = sizeBytes
+          Message = if isNull error then String.Empty else error.Message
+          LatencyMs = latencyMs
+          Payload = None }
+
+    static member Fail(
+        [<Optional;DefaultParameterValue("")>] statusCode: string,
+        [<Optional;DefaultParameterValue("")>] message: string,
+        [<Optional;DefaultParameterValue(0)>] sizeBytes: int,
+        [<Optional;DefaultParameterValue(0.0)>] latencyMs: float) : Response<obj> =
+
+        { StatusCode = statusCode
+          IsError = true
+          SizeBytes = sizeBytes
+          Message = if isNull message then String.Empty else message
+          LatencyMs = latencyMs
+          Payload = None }
+
+    static member Fail<'T>(
+        statusCode: string,
+        error: Exception,
+        [<Optional;DefaultParameterValue(0)>] sizeBytes: int,
+        [<Optional;DefaultParameterValue(0.0)>] latencyMs: float) : Response<'T> =
+
+        { StatusCode = statusCode
+          IsError = true
+          SizeBytes = sizeBytes
+          Message = if isNull error then String.Empty else error.Message
+          LatencyMs = latencyMs
+          Payload = None }
+
+    static member Fail<'T>(
+        [<Optional;DefaultParameterValue("")>] statusCode: string,
+        [<Optional;DefaultParameterValue("")>] message: string,
+        [<Optional;DefaultParameterValue(0)>] sizeBytes: int,
+        [<Optional;DefaultParameterValue(0.0)>] latencyMs: float) : Response<'T> =
+
+        { StatusCode = statusCode
+          IsError = true
+          SizeBytes = sizeBytes
+          Message = if isNull message then String.Empty else message
+          LatencyMs = latencyMs
+          Payload = None }
+
 /// Step represents a single user action like login, logout, etc.
 type Step =
 
