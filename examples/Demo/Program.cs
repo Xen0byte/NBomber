@@ -13,6 +13,7 @@ using Demo.Features.Logger.GrafanaLoki;
 using Demo.Features.Logger.TextFile;
 using Demo.Features.RealtimeReporting.CustomReportingSink;
 using Demo.Features.RealtimeReporting.InfluxDB;
+using Demo.Features.Thresholds;
 using Demo.Features.Timeouts;
 using Demo.HelloWorld;
 using Demo.HelloWorld.LoadSimulation;
@@ -72,6 +73,10 @@ new HelloWorldExample().Run();
 // ---- Timeouts ----
 // new ScenarioCompletionTimeout().Run();
 // new HttpWithTimeoutExample().Run();
+
+// ---- Thresholds ----
+// new ThresholdsExample().Run();
+// new ThresholdsConfigExample().Run();
 
 // ---- Dynamic Workloads ----
 // new ScenarioWeightExample().Run();
