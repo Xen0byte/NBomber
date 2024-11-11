@@ -22,6 +22,7 @@ using Demo.MQTT;
 using Demo.HTTP.WebAppSimulator;
 using Demo.HTTP.SimpleBookstore;
 using Demo.MQTT.ClientPool;
+using Demo.NBomber_Studio;
 using Demo.WebBrowsers.Playwright;
 using Demo.WebBrowsers.Puppeteer;
 using Demo.WebSockets;
@@ -64,6 +65,7 @@ new HelloWorldExample().Run();
 // new InfluxDBReportingExample().Run();
 // new TimescaleDBReportingExample().Run();
 // new CustomReportingExample().Run();
+// new NBomberStudioReportingExample().Run();
 
 // ---- Logs ----
 // new TextFileLogger().Run();

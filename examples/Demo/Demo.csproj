@@ -41,6 +41,12 @@
       <None Update="Features\Thresholds\nbomber-config.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
+      <None Update="NBomber Studio\infra-config.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="NBomber_Studio\infra-config.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
     <ItemGroup>
@@ -65,7 +71,7 @@
         <PackageReference Include="NBomber.Data" Version="5.0.0" />
         <PackageReference Include="NBomber.Http" Version="5.2.0" />
         <PackageReference Include="NBomber.MQTT" Version="0.2.0" />
-        <PackageReference Include="NBomber.Sinks.Timescale" Version="0.6.0" />
+        <PackageReference Include="NBomber.Sinks.Timescale" Version="0.6.1" />
         <PackageReference Include="NBomber.WebBrowser" Version="0.1.0" />
         <PackageReference Include="NBomber.WebSockets" Version="0.1.0" />
         <PackageReference Include="NBomber.Sinks.InfluxDB" Version="5.1.0" />
