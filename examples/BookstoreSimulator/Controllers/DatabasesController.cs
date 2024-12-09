@@ -17,10 +17,12 @@ namespace BookstoreSimulator.Controllers
 
         [AllowAnonymous]
         [HttpPut]
-        public async Task PreparedDB()
+        public Task PreparedDB()
         {
             _db.CleanTables();
             _db.CreateTables();
+
+            return Task.CompletedTask;
         }
     }
 }

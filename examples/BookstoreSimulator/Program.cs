@@ -89,11 +89,11 @@ namespace BookstoreSimulator
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSetings.Key))
                 };
             });
-        
+
             var settings = builder.Configuration.GetSection("BookstoreSettings").Get<BookstoreSettings>();
 
             builder.Services.AddSingleton(_ => new UserRepository(settings, logger));
-            builder.Services.AddSingleton(_ => new BookRepository(settings, logger));       
+            builder.Services.AddSingleton(_ => new BookRepository(settings, logger));
             builder.Services.AddSingleton(_ => new OrderRepository(settings, logger));
             builder.Services.AddSingleton(_ => new DB(settings, logger));
             builder.Services.AddSingleton(_ => new SingUpUserRequestValidator());
@@ -115,8 +115,8 @@ namespace BookstoreSimulator
                 {
                     OnPrepareResponse = context =>
                     {
-                        context.Context.Response.Headers.Add("Cache-Control", "no-cache, no-store");
-                        context.Context.Response.Headers.Add("Expires", "-1");
+                        context.Context.Response.Headers.Append("Cache-Control", "no-cache, no-store");
+                        context.Context.Response.Headers.Append("Expires", "-1");
                     }
                 });
 

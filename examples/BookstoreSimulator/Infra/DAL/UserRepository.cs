@@ -94,7 +94,7 @@ namespace BookstoreSimulator.Infra.DAL
             }
         }
 
-        public async Task<UserLoginDBRecord?> TryFindUserLoginData(string email)
+        public async Task<UserLoginDBRecord> TryFindUserLoginData(string email)
         {
             try
             {

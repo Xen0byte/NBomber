@@ -17,7 +17,7 @@ namespace BookstoreSimulator.Controllers
         private readonly JwtSetings _jwtSetings;
         private readonly SingUpUserRequestValidator _singUpUserRequestValidator;
         private readonly LoginUserRequestValidator _loginUserRequestValidator;
-   
+
         public UsersController
             (UserRepository rep, JwtSetings jwtSetings,
             SingUpUserRequestValidator singUpUserRequestValidator,
@@ -87,9 +87,9 @@ namespace BookstoreSimulator.Controllers
         [Route("logout")]
         [Authorize]
         [HttpPost]
-        public async Task<IResult> Logout()
+        public Task<IResult> Logout()
         {
-            return Results.Ok();
+            return Task.FromResult(Results.Ok());
         }
     }
 }
