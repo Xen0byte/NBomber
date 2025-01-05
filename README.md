@@ -5,34 +5,47 @@
 [![NuGet](https://img.shields.io/nuget/v/nbomber.svg)](https://www.nuget.org/packages/nbomber/)
 [![Nuget](https://img.shields.io/nuget/dt/nbomber.svg)](https://www.nuget.org/packages/nbomber/)
 
-NBomber is a modern and flexible load-testing framework for Pull and Push scenarios, designed to test any system regardless of a protocol (HTTP/WebSockets/AMQP, etc) or a semantic model (Pull/Push).
-
-NBomber is free for personal use, developer-centric, and extensible.
-Using NBomber, you can test the reliability and performance of your systems and catch performance regressions and problems earlier. 
-NBomber will help you to build resilient and performant applications that scale.
+**NBomber** - Distributed load-testing framework for .NET.
+It is designed to test any system regardless of the protocol (HTTP/WebSockets/AMQP) or a semantic model (Pull/Push).
+It allows to write distributed load test scenarios in plain C# or F#.
 
 [![NBomber 5](https://cdn.jsdelivr.net/gh/PragmaticFlow/NBomber@assets/v5.0/assets/NBomber_5_youtube.png)](https://youtu.be/Z51PyZvZNF8)
 
-### Links
-- [Website](https://nbomber.com/)
-- [Documentation](https://nbomber.com/docs/getting-started/overview/)
+NBomber as a modern framework provides:
+- Zero dependencies on protocol (HTTP/WebSockets/AMQP/SQL)
+- Zero dependencies on semantic model (Pull/Push)
+- Very flexible configuration and dead simple API
+- **Native Debug** - debug your tests using your favorite IDE (Visual Studio, VS Code, Rider)
+- [Informative Reports](https://nbomber.com/docs/reporting/reports): [HTML](https://nbomber.com/assets/reports/html_report.html)
+- Realtime reporting:
+    - [NBomber Studio](https://nbomber.com/docs/nbomber-studio/overview) - is a powerful management tool designed by NBomber. Monitor tests in real time with NBomber Studio and conduct detailed result analysis to identify trends.
+    - [Reporting Sinks](https://nbomber.com/docs/nbomber/reporting-sinks) for integration with popular systems for real-time monitoring
+        - [InfluxDB](https://nbomber.com/docs/reporting/realtime/influx-db)
+        - [TimescaleDB](https://nbomber.com/docs/reporting/realtime/timescale)
+        - [Grafana](https://nbomber.com/docs/reporting/realtime/grafana)
+- Protocols/extensions support:
+  - [HTTP](https://nbomber.com/docs/protocols/http),
+  - [WebSockets](https://nbomber.com/docs/protocols/websockets),
+  - [MQTT](https://nbomber.com/docs/protocols/mqtt),
+  - [WebBrowser](https://nbomber.com/docs/protocols/webbrowser)
+  - [Redis](https://github.com/PragmaticFlow/NBomber/tree/dev/examples/Demo/DB/Redis),
+  - [SQLite](https://github.com/PragmaticFlow/NBomber/tree/dev/examples/Demo/DB/SQLiteDB),
+  - MongoDB
+  - AMQP
+  - gRPC
+- [Data Feed](https://nbomber.com/docs/nbomber/data) - inject real or fake data into your tests
+- [Distributed Cluster](https://nbomber.com/docs/cluster/overview) - run your load tests in distributed mode
+- [Load Simulation](https://nbomber.com/docs/nbomber/load-simulation) - simulate realistic workloads
+- [Dynamic Workloads](https://nbomber.com/docs/nbomber/dynamic-workloads) - simulate dynamic workloads
+- [JSON Configuration](https://nbomber.com/docs/nbomber/json-config) - configure your load tests via JSON Config
+- [Asserts and Thresholds](https://nbomber.com/docs/nbomber/asserts_and_thresholds)
+- CI/CD integration ([xUnit](https://github.com/PragmaticFlow/NBomber/blob/dev/examples/xUnitExample/LoadTestExample.cs#L11) and NUnit runners are supported)
 
 ### Why we build NBomber and what you can do with it?
 The main reason behind NBomber is to provide a lightweight framework for writing load tests which you can use to test literally any system and simulate any production workload. We wanted to provide only a few abstractions so that we could describe any type of load and still have a simple, intuitive API.
 Another goal is to provide building blocks to validate your POC (proof of concept) projects by applying any complex load distribution.
 With NBomber you can test any PULL or PUSH system (HTTP, WebSockets, GraphQl, gRPC, SQL Databse, MongoDb, Redis etc).
 With NBomber you can convert some of your integration tests to load tests easily.
-
-NBomber as a modern framework provides:
-- Zero dependencies on protocol (HTTP/WebSockets/AMQP/SQL)
-- Zero dependencies on semantic model (Pull/Push)
-- Very flexible configuration and dead simple API
-- [Distributed cluster support](https://nbomber.com/docs/cluster/overview)
-- Real-time reporting
-- CI/CD integration (xUnit and NUnit runners are supported)
-- Plugins/extensions support - add your own plugins or data sinks
-- Data feed support - inject real or fake data into your tests
-- **Debuggability of your load test** - debug your tests using your favorite IDE
 
 ### What makes it very simple?
 One of the design goals of NBomber is to keep API as minimal as possible.
@@ -60,8 +73,28 @@ NBomberRunner
     .Run();
 ```
 
-### Examples
-|Type|Language
-|--|--|
-| [NBomber Demo](https://github.com/PragmaticFlow/NBomber/tree/dev/examples/Demo) | C# |
+### Videos
 
+[Load Testing with C# and NBomber (Part 1)](https://youtu.be/XnK5sLhqXms)
+
+### Links
+- [Website](https://nbomber.com/)
+- [Documentation](https://nbomber.com/docs/getting-started/overview/)
+- [Examples](https://github.com/PragmaticFlow/NBomber/tree/dev/examples/Demo)
+
+### Frequently asked questions
+
+| Question                                                                        | Answer                                                                                                                       |
+|---------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| How NBomber can be installed?                                                   | NBomber is shipped as .NET library and can be installed via [NuGet package manager](https://www.nuget.org/packages/NBomber/) |
+| How can I run NBomber load test scenario?                                       | You can run it as Console application or as Unit test (xUnit/NUnit)                                                          |
+| Can I use NBomber for free?                                                     | You can use it for free, only for personal use. For the organization usage, you should have a license.                       |
+| Can multiple teams use the same license within one organization?                | Yes, a single license can be shared for the whole organization                                                               |
+| How many users from the same organization can use the license at the same time? | Unlimited                                                                                                                   |
+| Can I run NBomber Cluster without purchasing a license?                         | Yes, you can try [Local Dev Cluster](https://nbomber.com/docs/cluster/local-dev-cluster) mode                                |
+| How many instances can be installed with one NBomber license?                   | Unlimited                                                                                                                    |
+| How many NBomber executions can be run in parallel?                             | Unlimited                                                                                                                    |
+
+### About Us
+
+We are US based company [NBomber LLC](https://www.linkedin.com/company/nbomber) (8 The Green, Dover, Delaware 19901, USA).
